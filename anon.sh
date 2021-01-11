@@ -1,4 +1,13 @@
 #!/bin/bash
+user_check() {
+  clear
+  [ `/usr/bin/whoami` != root ] && error
+}
+error() {
+  clear
+  echo "You must be root to execute this script"
+  exit
+}
 error3() {
   clear
   echo "please install wget"
@@ -29,6 +38,7 @@ download() {
   one_time=$(ls | grep firefox)
   chmod +x $one_time
 }
+user_check
 check
 one_time=$(ls | grep firefox)
 start_tor
