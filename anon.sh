@@ -30,7 +30,6 @@ download() {
   one_time=$(ls | grep firefox)
   chmod +x $one_time
 }
-user_check
 check
 one_time=$(ls | grep firefox)
 start_tor
