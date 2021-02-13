@@ -37,3 +37,4 @@ start_tor
 ls | grep -w "first_time" && (gnome-terminal -- nyx & ./$one_time https://wiki.archlinux.org/index.php/Tor'#Web_browsing') || (gnome-terminal -- nyx & ./$one_time)
 ls /usr/bin | grep -w "sudo" && sudo systemctl stop tor.service || (ls /usr/bin | grep -w "doas" ) && doas systemctl stop tor.service
 ls | grep -w "first_time" && rm first_time
+clear
