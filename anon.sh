@@ -15,7 +15,7 @@ error1() {
   exit
 }
 start_tor() {
-  ls /usr/bin | grep -w "sudo" && sudo systemctl start tor.service || ls /usr/bin | grep -w "doas" && doas systemctl start tor.service
+  ls /usr/bin | grep -w "sudo" && sudo systemctl start tor.service || ls /usr/bin | grep -w "doas" && clear && doas systemctl start tor.service
 }
 check() {
   ls /usr/bin | grep -w "wget" || error3
