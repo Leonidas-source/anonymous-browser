@@ -15,7 +15,7 @@ error1() {
   exit
 }
 start_tor() {
-  ls /usr/bin | grep -w "sudo" && sudo systemctl start tor.service || ls /usr/bin | grep -w "doas" && clear && doas systemctl start tor.service
+  ls /usr/bin | (grep -w "sudo") && (clear && sudo systemctl start tor.service) || ls /usr/bin | (grep -w "doas") && (clear && doas systemctl start tor.service)
 }
 check() {
   ls /usr/bin | grep -w "wget" || error3
@@ -35,6 +35,6 @@ check
 one_time=$(ls | grep LibreWolf)
 start_tor
 ls | grep -w "first_time" && (gnome-terminal -- nyx & ./$one_time https://wiki.archlinux.org/index.php/Tor'#Web_browsing') || (gnome-terminal -- nyx & ./$one_time)
-ls /usr/bin | grep -w "sudo" && sudo systemctl stop tor.service || (ls /usr/bin | grep -w "doas" ) && doas systemctl stop tor.service
+ls /usr/bin | (grep -w "sudo") && (sudo systemctl stop tor.service) || (ls /usr/bin | grep -w "doas" ) && (clear && doas systemctl stop tor.service)
 ls | grep -w "first_time" && rm first_time
 clear
